@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LDL 膽固醇最新研究 2025-2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0f1923; color: #e8eaf0; }
+
+  .slide {
+    width: 100%; min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 60px 80px;
+    border-bottom: 1px solid #1e2d3d;
+    position: relative; overflow: hidden;
+  }
+
+  /* Slide 1 - Cover */
+  .slide-cover {
+    background: linear-gradient(135deg, #0f1923 0%, #1a2d4a 50%, #0f1923 100%);
+    text-align: center;
+  }
+  .slide-cover::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,120,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cover-tag {
+    display: inline-block;
+    background: rgba(0,120,255,0.2);
+    border: 1px solid rgba(0,120,255,0.4);
+    color: #4d9fff;
+    padding: 6px 20px; border-radius: 20px;
+    font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 30px;
+  }
+  .cover-title {
+    font-size: 56px; font-weight: 700;
+    line-height: 1.15; margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff, #a0c4ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .cover-subtitle {
+    font-size: 22px; color: #7a9bb5; margin-bottom: 50px;
+  }
+  .cover-meta {
+    display: flex; justify-content: center; gap: 40px;
+    font-size: 14px; color: #4d7a9a;
+  }
+
+  /* Slide general */
+  .slide-num {
+    position: absolute; top: 30px; right: 40px;
+    font-size: 12px; color: #2d4a65; letter-spacing: 1px;
+  }
+  .section-tag {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: #4d9fff; margin-bottom: 15px;
+  }
+  .slide-title {
+    font-size: 38px; font-weight: 700; margin-bottom: 40px;
+    line-height: 1.2; color: #ffffff;
+  }
+  .slide-title span { color: #4d9fff; }
+
+  /* Content blocks */
+  .cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; margin-top: 10px;
+  }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(77,159,255,0.3); }
+  .card-icon { font-size: 28px; margin-bottom: 14px; }
+  .card-title { font-size: 16px; font-weight: 600; color: #c8d8e8; margin-bottom: 8px; }
+  .card-body { font-size: 14px; color: #7a9bb5; line-height: 1.6; }
+
+  /* Big stat */
+  .stats { display: flex; gap: 30px; flex-wrap: wrap; margin: 20px 0; }
+  .stat {
+    background: rgba(0,120,255,0.08);
+    border: 1px solid rgba(0,120,255,0.2);
+    border-radius: 12px; padding: 24px 30px; flex: 1; min-width: 160px;
+  }
+  .stat-num { font-size: 48px; font-weight: 700; color: #4d9fff; line-height: 1; }
+  .stat-unit { font-size: 20px; color: #4d9fff; }
+  .stat-label { font-size: 13px; color: #7a9bb5; margin-top: 8px; }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
+  .tl-item:not(:last-child)::before {
+    content: '';
+    position: absolute; left: 19px; top: 40px; bottom: 0;
+    width: 2px; background: rgba(77,159,255,0.2);
+  }
+  .tl-dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(0,120,255,0.15);
+    border: 2px solid rgba(77,159,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0; margin-top: 2px;
+  }
+  .tl-content {}
+  .tl-year { font-size: 12px; color: #4d9fff; margin-bottom: 4px; letter-spacing: 1px; }
+  .tl-title { font-size: 16px; font-weight: 600; color: #c8d8e8; margin-bottom: 4px; }
+  .tl-desc { font-size: 14px; color: #7a9bb5; line-height: 1.5; }
+
+  /* Highlight box */
+  .highlight {
+    background: rgba(0,120,255,0.08);
+    border-left: 3px solid #4d9fff;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px; margin: 16px 0;
+    font-size: 15px; color: #a0c4e8; line-height: 1.6;
+  }
+  .highlight strong { color: #4d9fff; }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .col-label { font-size: 12px; letter-spacing: 1px; color: #4d9fff; margin-bottom: 12px; text-transform: uppercase; }
+
+  /* List */
+  .custom-list { list-style: none; }
+  .custom-list li {
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 15px; color: #a0b8cc; line-height: 1.5;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .custom-list li::before { content: '▸'; color: #4d9fff; flex-shrink: 0; }
+
+  /* Summary slide */
+  .slide-summary { background: linear-gradient(135deg, #0f1923, #1a2d4a); }
+  .key-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .kp {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px; padding: 18px 20px;
+    font-size: 14px; color: #8aadcc; line-height: 1.6;
+  }
+  .kp strong { color: #c8d8e8; display: block; margin-bottom: 4px; }
+
+  /* Source */
+  .source { font-size: 11px; color: #2d4a65; margin-top: 30px; }
+
+  @media print {
+    .slide { min-height: auto; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<div class="slide slide-cover">
+  <div class="cover-tag">Medical Research Update</div>
+  <div class="cover-title">LDL 膽固醇<br>最新研究報告</div>
+  <div class="cover-subtitle">2025–2026 關鍵突破與臨床指引更新</div>
+  <div class="cover-meta">
+    <span>📅 資料截至 2026 年 4 月</span>
+    <span>📚 來源：ESC/EAS、ACC、Frontiers、AJMC</span>
+  </div>
+</div>
+
+<!-- Slide 2: LDL 是什麼 -->
+<div class="slide">
+  <div class="slide-num">02 / 07</div>
+  <div class="section-tag">基礎概念</div>
+  <div class="slide-title">LDL 為什麼<span>危險？</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🩸</div>
+      <div class="card-title">LDL 的角色</div>
+      <div class="card-body">低密度脂蛋白（LDL）攜帶膽固醇在血液中運輸。過多時會沉積在動脈壁，形成斑塊（粥狀硬化）。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">危險因子</div>
+      <div class="card-body">LDL 粒子大小、密度、氧化程度、電負性，以及 Lp(a) 脂蛋白——這些比總 LDL 數值更能預測風險。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">最新目標值</div>
+      <div class="card-body">2025 ESC/EAS 指引：高風險患者目標 &lt;1.4 mmol/L（&lt;55 mg/dL），極高風險 &lt;1.0 mmol/L（&lt;40 mg/dL）。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📉</div>
+      <div class="card-title">「越低越好」</div>
+      <div class="card-body">最新研究確認：LDL 越低，心血管事件風險越低，沒有明確的「太低」下限。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3: 最新指引 -->
+<div class="slide">
+  <div class="slide-num">03 / 07</div>
+  <div class="section-tag">2025–2026 指引更新</div>
+  <div class="slide-title">越早降、<span>降更低</span></div>
+  <div class="highlight">
+    2025 年 ESC/EAS 更新指引 + ACC 最新建議：<strong>「Lower is Better for Longer」</strong>——越早開始降 LDL，終身心血管風險越低。
+  </div>
+  <div class="two-col" style="margin-top: 24px;">
+    <div>
+      <div class="col-label">新的策略轉變</div>
+      <ul class="custom-list">
+        <li>鼓勵高風險族群提早開始組合用藥</li>
+        <li>不再等「生活習慣改變無效」才用藥</li>
+        <li>年輕患者也應積極降低 LDL</li>
+        <li>組合療法（他汀 + PCSK9 抑制劑）優於單藥</li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-label">重要數據</div>
+      <div class="stats" style="flex-direction: column; gap: 12px;">
+        <div class="stat" style="padding: 16px 20px;">
+          <div><span class="stat-num">50</span><span class="stat-unit">%↓</span></div>
+          <div class="stat-label">早期組合降脂的心血管事件降低</div>
+        </div>
+        <div class="stat" style="padding: 16px 20px;">
+          <div><span class="stat-num">30</span><span class="stat-unit">%↓</span></div>
+          <div class="stat-label">每降低 1 mmol/L LDL，心臟病風險下降</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4: 最大突破 -->
+<div class="slide">
+  <div class="slide-num">04 / 07</div>
+  <div class="section-tag">2025–2026 最大突破</div>
+  <div class="slide-title">口服 <span>PCSK9 抑制劑</span> 問世</div>
+  <div class="highlight">
+    過去 PCSK9 抑制劑只能注射（每月一針），2025 年突破性進展：<strong>Enlicitide（口服 PCSK9 抑制劑）</strong>臨床試驗成功。
+  </div>
+  <div class="stats" style="margin-top: 24px;">
+    <div class="stat">
+      <div><span class="stat-num">57</span><span class="stat-unit">%</span></div>
+      <div class="stat-label">24 週後 LDL 降低幅度（CORALreef 試驗）</div>
+    </div>
+    <div class="stat">
+      <div><span class="stat-num">2,909</span><span class="stat-unit"> 人</span></div>
+      <div class="stat-label">CORALreef 試驗規模</div>
+    </div>
+    <div class="stat">
+      <div><span class="stat-num">20</span><span class="stat-unit">mg</span></div>
+      <div class="stat-label">每日一顆口服劑量</div>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top: 20px;">
+    效果媲美注射型 PCSK9 抑制劑（如 Repatha、Praluent）。<strong>口服化將大幅提升用藥依從性。</strong>
+  </div>
+</div>
+
+<!-- Slide 5: 治療選項比較 -->
+<div class="slide">
+  <div class="slide-num">05 / 07</div>
+  <div class="section-tag">治療選項</div>
+  <div class="slide-title">他汀 vs <span>PCSK9 抑制劑</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">💊</div>
+      <div class="tl-content">
+        <div class="tl-year">第一線治療</div>
+        <div class="tl-title">他汀類藥物（Statins）</div>
+        <div class="tl-desc">降低 LDL 30-55%｜價格低廉｜每日口服｜副作用：少數人有肌肉疼痛。仍是全球最廣泛使用的降脂藥。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">💉</div>
+      <div class="tl-content">
+        <div class="tl-year">強化治療（注射）</div>
+        <div class="tl-title">PCSK9 抑制劑（注射型）</div>
+        <div class="tl-desc">降低 LDL 50-70%｜每 2-4 週注射一次｜適合他汀效果不足或不耐受者｜2026 年最新 Meta 分析：效果優於高劑量他汀。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🆕</div>
+      <div class="tl-content">
+        <div class="tl-year">2025 突破（口服）</div>
+        <div class="tl-title">Enlicitide 口服 PCSK9 抑制劑</div>
+        <div class="tl-desc">降低 LDL 57%｜每日一顆口服｜效果媲美注射型｜尚未上市，預計 2026-2027 申請核准。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🧬</div>
+      <div class="tl-content">
+        <div class="tl-year">輔助療法</div>
+        <div class="tl-title">Ezetimibe + Inclisiran</div>
+        <div class="tl-desc">Ezetimibe 抑制腸道吸收，降低 LDL 15-20%｜Inclisiran（siRNA 注射）每年只需 2 劑，效果持久。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6: LDL 計算新方法 -->
+<div class="slide">
+  <div class="slide-num">06 / 07</div>
+  <div class="section-tag">2026 新研究</div>
+  <div class="slide-title">LDL 計算方式<span>有新進展</span></div>
+  <div class="highlight">
+    2026 年 2 月 Springer Nature 發表：傳統 Friedewald 公式低估高三酸甘油酯患者的 LDL，<strong>新計算方法更準確預測心血管風險。</strong>
+  </div>
+  <div class="cards" style="margin-top: 24px;">
+    <div class="card">
+      <div class="card-icon">📐</div>
+      <div class="card-title">舊方法（Friedewald）</div>
+      <div class="card-body">LDL = 總膽固醇 - HDL - 三酸甘油酯/5<br>在三酸甘油酯高時誤差大。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <div class="card-title">新生物標記</div>
+      <div class="card-body">Remnant Cholesterol（殘餘膽固醇）、ApoB、Lp(a) 被認為是比 LDL 更好的風險預測指標。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">電負性 LDL</div>
+      <div class="card-body">帶負電的 LDL 粒子（L5）是最具致動脈硬化性的亞型，比總 LDL 數值更危險（Frontiers 2025）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7: 摘要 -->
+<div class="slide slide-summary">
+  <div class="slide-num">07 / 07</div>
+  <div class="section-tag">關鍵摘要</div>
+  <div class="slide-title">重點<span>總結</span></div>
+  <div class="key-points">
+    <div class="kp">
+      <strong>🎯 越低越好</strong>
+      LDL 沒有「太低」的問題，高風險患者目標 &lt;55 mg/dL，極高風險 &lt;40 mg/dL。
+    </div>
+    <div class="kp">
+      <strong>⏰ 越早越好</strong>
+      2025 ESC/EAS 更新指引：年輕就開始積極降 LDL，終身受益更大。
+    </div>
+    <div class="kp">
+      <strong>💊 口服 PCSK9 即將問世</strong>
+      Enlicitide 臨床試驗成功，降 LDL 57%，每日口服，改變未來治療格局。
+    </div>
+    <div class="kp">
+      <strong>🔬 不只看 LDL 數值</strong>
+      ApoB、Lp(a)、電負性 LDL、殘餘膽固醇是更精準的風險指標。
+    </div>
+    <div class="kp">
+      <strong>💉 組合療法優先</strong>
+      他汀 + PCSK9 抑制劑組合，比單藥高劑量更有效、副作用更少。
+    </div>
+    <div class="kp">
+      <strong>📊 計算方法更新</strong>
+      傳統 Friedewald 公式在高三酸甘油酯時不準，新方法更精確。
+    </div>
+  </div>
+  <div class="source">資料來源：Frontiers in Cardiovascular Medicine 2025-2026｜American College of Cardiology 2026｜AJMC 2025-2026｜Current Atherosclerosis Reports 2026</div>
+</div>
+
+</body>
+</html>
